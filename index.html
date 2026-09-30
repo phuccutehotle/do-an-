@@ -1,0 +1,1205 @@
+Được chứ anh 😎 Đây là **toàn bộ code đúng của file Foodie House bản mới**. Anh copy hết đoạn dưới, dán vào VS Code rồi lưu thành `foodiehouse.html`.
+
+```html
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Foodie House | Đồ ăn vặt</title>
+<style>
+:root{--o:#f97316;--d:#211d19;--c:#fff8ef;--m:#77706a;--l:#eee5db}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,sans-serif;background:var(--c);color:var(--d)}button,input,select{font:inherit}button{cursor:pointer}header{background:#fff;position:sticky;top:0;z-index:40;border-bottom:1px solid var(--l)}.top{height:86px;display:flex;align-items:center;gap:28px;max-width:1380px;margin:auto;padding:0 24px}.logo{display:flex;align-items:center;gap:12px;min-width:315px}.mark{width:52px;height:52px;border-radius:16px;background:#ffeddc;display:grid;place-items:center;font-size:30px}.logo h1{font:800 29px Georgia,serif}.logo p{font-size:15px}.search{flex:1;position:relative}.search input{width:100%;height:46px;border:1px solid #e7ded4;border-radius:9px;padding:0 58px 0 17px;outline:0}.search button{position:absolute;right:0;top:0;height:46px;width:58px;border:0;border-radius:9px;background:var(--o);color:#fff;font-size:21px}.account{display:flex;gap:22px;white-space:nowrap}.account button{border:0;background:none;font-weight:600}.cart-link{position:relative}.badge{position:absolute;right:-9px;top:-10px;background:var(--o);color:#fff;border-radius:20px;font-size:11px;padding:2px 6px}nav{height:54px;border-top:1px solid #f3eee8}.nav{max-width:820px;height:100%;margin:auto;display:flex;justify-content:space-between}.nav button{border:0;background:none;font-weight:700;padding:0 18px;position:relative}.nav button.active,.nav button:hover{color:var(--o)}.nav button.active:after{content:"";position:absolute;bottom:0;left:15px;right:15px;height:3px;background:var(--o)}main{max-width:1380px;margin:auto;padding:28px 24px 70px}.layout{display:grid;grid-template-columns:295px 1fr;gap:25px}.sidebar{display:flex;flex-direction:column;gap:15px}.panel{background:#fff;border-radius:14px;padding:22px;border:1px solid var(--l)}.panel h3{font-size:19px;margin-bottom:16px}.cats{display:flex;flex-direction:column;gap:5px}.cats button{border:0;background:none;text-align:left;padding:11px 13px;border-radius:9px}.cats button.active,.cats button:hover{background:var(--o);color:#fff}.range{width:100%;accent-color:var(--o)}.labels{display:flex;justify-content:space-between;margin-top:9px;font-size:13px}.filter{width:100%;border:0;background:var(--o);color:#fff;border-radius:8px;padding:11px;font-weight:700;margin-top:14px}.best{display:grid;grid-template-columns:80px 1fr;gap:12px;margin:14px 0}.bestimg{width:80px;height:68px;border-radius:10px;background-size:cover;background-position:center}.best h4{font-size:14px;margin-bottom:5px}.stars{color:#f59e0b;font-size:13px}.contenthead{display:flex;justify-content:space-between;align-items:center;margin:4px 0 20px}.contenthead h2{font-size:27px}.sort{padding:11px 15px;border:1px solid #e1d8ce;background:#fff;border-radius:9px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:#fff;border:1px solid var(--l);border-radius:12px;overflow:hidden;transition:.2s;box-shadow:0 4px 16px #7a4a1908}.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #7a4a1915}.photo{height:225px;background-size:cover;background-position:center;position:relative}.tag{position:absolute;left:12px;top:12px;background:#fff;border-radius:20px;padding:6px 9px;color:var(--o);font-size:11px;font-weight:800}.body{padding:13px}.body h3{font-size:17px;margin-bottom:7px}.meta{font-size:13px;color:#666}.price{font-size:17px;font-weight:800;color:#c75b00;margin:8px 0}.add{width:100%;border:0;background:var(--o);color:#fff;border-radius:7px;padding:10px;font-weight:700}.empty{grid-column:1/-1;text-align:center;padding:70px;color:#777}footer{background:#211d19;color:#eee;text-align:center;padding:38px}.overlay{position:fixed;inset:0;background:#0008;display:none;z-index:70}.overlay.show{display:block}.modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.detail{width:min(920px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;display:grid;grid-template-columns:48% 52%;position:relative}.detailphoto{min-height:500px;background-size:cover;background-position:center}.detailinfo{padding:40px}.detailinfo h2{font-size:34px;margin:10px 0}.detailinfo .bigprice{font-size:28px;font-weight:900;color:#c75b00;margin:18px 0}.detailinfo p{line-height:1.7;color:#666}.ibox{background:#fff8ef;border:1px solid #f3e3d3;padding:15px;border-radius:11px;margin:17px 0}.qty{display:flex;align-items:center;gap:15px;margin:20px 0}.qty button{border:0;width:34px;height:34px;border-radius:50%;background:#eee}.buy{width:100%;padding:14px;border:0;border-radius:9px;background:var(--o);color:#fff;font-weight:800}.close{position:absolute;right:14px;top:12px;border:0;background:#fff;border-radius:50%;width:38px;height:38px;font-size:26px;z-index:2}.cart{position:fixed;right:-450px;top:0;width:430px;max-width:100%;height:100vh;background:#fff;z-index:100;transition:.3s;padding:22px;display:flex;flex-direction:column;box-shadow:-10px 0 35px #0002}.cart.open{right:0}.carthead{display:flex;justify-content:space-between;border-bottom:1px solid var(--l);padding-bottom:15px}.carthead button{border:0;background:none;font-size:28px}.cartlist{flex:1;overflow:auto}.crow{display:grid;grid-template-columns:60px 1fr auto;gap:10px;padding:15px 0;border-bottom:1px solid var(--l);align-items:center}.cphoto{width:60px;height:60px;border-radius:8px;background-size:cover;background-position:center}.cqty{display:flex;align-items:center;gap:7px;margin-top:7px}.cqty button{border:0;width:25px;height:25px;border-radius:50%;background:#eee}.cartfoot{border-top:1px solid var(--l);padding-top:15px}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;margin-bottom:15px}.checkout{width:100%;border:0;background:#211d19;color:#fff;padding:14px;border-radius:9px}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,100px);background:#211d19;color:#fff;padding:12px 18px;border-radius:25px;z-index:200;transition:.25s}.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{display:none}.grid{grid-template-columns:repeat(2,1fr)}.logo{min-width:auto}.account button:first-child{display:none}}
+@media(max-width:600px){.top{height:auto;padding:10px 14px;flex-wrap:wrap}.logo{width:100%}.search{order:3;flex-basis:100%}.nav{overflow:auto;justify-content:flex-start}.grid{grid-template-columns:1fr}.detail{grid-template-columns:1fr}.detailphoto{min-height:280px}.detailinfo{padding:25px}.cart{width:100%}}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+
+<div class="logo">
+
+<div class="mark">🍔</div>
+
+<div>
+<h1>Foodie House</h1>
+<p>Ăn vặt là hạnh phúc</p>
+</div>
+
+</div>
+
+<div class="search">
+
+<input
+id="search"
+placeholder="Tìm món ăn, đồ uống..."
+oninput="render()"
+>
+
+<button>⌕</button>
+
+</div>
+
+<div class="account">
+
+<button>♙ &nbsp;Đăng nhập</button>
+
+<button
+class="cart-link"
+onclick="openCart()"
+>
+🛒 &nbsp;Giỏ hàng
+
+<span
+class="badge"
+id="cartCount"
+>
+0
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<div class="nav">
+
+<button>TRANG CHỦ</button>
+
+<button class="active">
+SẢN PHẨM
+</button>
+
+<button>COMBO</button>
+
+<button>KHUYẾN MÃI</button>
+
+<button>ĐÁNH GIÁ</button>
+
+<button>BLOG</button>
+
+<button>LIÊN HỆ</button>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<main>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div class="panel">
+
+<h3>DANH MỤC</h3>
+
+<div
+class="cats"
+id="cats"
+></div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>KHOẢNG GIÁ</h3>
+
+<input
+class="range"
+id="range"
+type="range"
+min="10000"
+max="160000"
+step="5000"
+value="160000"
+oninput="document.getElementById('max').textContent=money(this.value)+'+'"
+>
+
+<div class="labels">
+
+<span>10.000đ</span>
+
+<span id="max">
+160.000đ+
+</span>
+
+</div>
+
+<button
+class="filter"
+onclick="render()"
+>
+Lọc sản phẩm
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>SẢN PHẨM BÁN CHẠY</h3>
+
+<div id="best"></div>
+
+</div>
+
+</aside>
+
+
+<section>
+
+<div class="contenthead">
+
+<h2>TẤT CẢ SẢN PHẨM</h2>
+
+<select
+class="sort"
+id="sort"
+onchange="render()"
+>
+
+<option value="new">
+Sắp xếp: Mới nhất
+</option>
+
+<option value="up">
+Giá thấp đến cao
+</option>
+
+<option value="down">
+Giá cao đến thấp
+</option>
+
+<option value="rating">
+Đánh giá cao
+</option>
+
+</select>
+
+</div>
+
+
+<div
+class="grid"
+id="products"
+></div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<h2>🍔 Foodie House</h2>
+
+<p style="margin-top:8px">
+Ăn vặt là hạnh phúc • Đồ ngon giao tận nơi
+</p>
+
+<p style="margin-top:15px;color:#aaa">
+© 2026 Foodie House
+</p>
+
+</footer>
+
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeAll()"
+></div>
+
+
+<div
+class="modal"
+id="modal"
+>
+
+<div
+class="detail"
+id="detail"
+></div>
+
+</div>
+
+
+<aside
+class="cart"
+id="cart"
+>
+
+<div class="carthead">
+
+<h2>
+🛒 Giỏ hàng
+</h2>
+
+<button onclick="closeCart()">
+×
+</button>
+
+</div>
+
+
+<div
+class="cartlist"
+id="cartList"
+></div>
+
+
+<div class="cartfoot">
+
+<div class="total">
+
+<span>Tổng</span>
+
+<span id="total">
+0đ
+</span>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="checkout()"
+>
+ĐẶT HÀNG
+</button>
+
+</div>
+
+</aside>
+
+
+<div
+class="toast"
+id="toast"
+></div>
+
+
+<script>
+
+const I = {
+
+fries:
+'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=88',
+
+chicken:
+'https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=900&q=88',
+
+pizza:
+'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=88',
+
+boba:
+'https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=900&q=88',
+
+popcorn:
+'https://images.unsplash.com/photo-1585647347483-22b66260dfff?auto=format&fit=crop&w=900&q=88',
+
+cheese:
+'https://images.unsplash.com/photo-1548340748-6d2b7d7a7b6a?auto=format&fit=crop&w=900&q=88',
+
+toppoki:
+'https://images.unsplash.com/photo-1635363638580-c2809d049eee?auto=format&fit=crop&w=900&q=88'
+
+};
+
+
+const foods = [
+
+{
+id:1,
+name:'Khoai tây lắc phô mai',
+cat:'Khoai tây',
+price:25000,
+rating:4.9,
+reviews:126,
+img:I.fries,
+desc:'Khoai tây chiên vàng giòn, lắc cùng bột phô mai thơm béo và rau mùi.',
+ingredients:'Khoai tây, bột phô mai, muối, rau mùi.',
+time:'10-15 phút',
+tag:'Bán chạy'
+},
+
+{
+id:2,
+name:'Gà rán sốt mật ong',
+cat:'Gà rán',
+price:39000,
+rating:4.8,
+reviews:98,
+img:I.chicken,
+desc:'Gà chiên giòn phủ sốt mật ong đậm đà, cân bằng vị ngọt và mặn.',
+ingredients:'Gà, bột chiên, mật ong, nước tương, mè.',
+time:'15-20 phút',
+tag:'Bán chạy'
+},
+
+{
+id:3,
+name:'Xiên que thập cẩm',
+cat:'Xiên que',
+price:29000,
+rating:4.7,
+reviews:75,
+img:I.cheese,
+desc:'Combo xiên que nhiều loại, nướng nóng và dùng kèm sốt chấm đặc biệt.',
+ingredients:'Xúc xích, cá viên, bò viên, rau củ, sốt.',
+time:'10-15 phút',
+tag:''
+},
+
+{
+id:4,
+name:'Phô mai que',
+cat:'Phô mai',
+price:35000,
+rating:4.8,
+reviews:64,
+img:I.cheese,
+desc:'Phô mai mozzarella kéo sợi bên trong lớp vỏ vàng giòn.',
+ingredients:'Mozzarella, bột mì, vụn bánh mì.',
+time:'10-15 phút',
+tag:''
+},
+
+{
+id:5,
+name:'Bánh gạo phô mai',
+cat:'Phô mai',
+price:28000,
+rating:4.8,
+reviews:53,
+img:I.toppoki,
+desc:'Bánh gạo mềm dẻo phủ sốt phô mai béo thơm.',
+ingredients:'Bánh gạo, phô mai, sốt kem, mè rang.',
+time:'10-15 phút',
+tag:'Mới'
+},
+
+{
+id:6,
+name:'Tokbokki sốt cay',
+cat:'Ăn vặt',
+price:32000,
+rating:4.9,
+reviews:112,
+img:I.toppoki,
+desc:'Bánh gạo Hàn Quốc mềm dẻo, sốt cay ngọt đậm đà.',
+ingredients:'Bánh gạo, tương ớt Hàn Quốc, đường, mè, hành.',
+time:'10-15 phút',
+tag:'Bán chạy'
+},
+
+{
+id:7,
+name:'Bỏng ngô phô mai',
+cat:'Snack',
+price:20000,
+rating:4.7,
+reviews:47,
+img:I.popcorn,
+desc:'Bỏng ngô giòn nhẹ, phủ lớp bột phô mai thơm béo.',
+ingredients:'Ngô, bơ, bột phô mai, muối.',
+time:'5-10 phút',
+tag:''
+},
+
+{
+id:8,
+name:'Trà sữa trân châu',
+cat:'Đồ uống',
+price:25000,
+rating:4.8,
+reviews:88,
+img:I.boba,
+desc:'Trà sữa thơm béo, trân châu dai mềm, vị ngọt vừa phải.',
+ingredients:'Trà đen, sữa, trân châu đen, đường.',
+time:'5-10 phút',
+tag:'Bán chạy'
+
+}
+
+];
+
+
+let category = 'Tất cả';
+
+let cartItems = [];
+
+let detailQty = 1;
+
+
+function money(n){
+
+return Number(n)
+.toLocaleString('vi-VN') + 'đ';
+
+}
+
+
+function renderCats(){
+
+let a = [
+'Tất cả',
+...new Set(
+foods.map(
+f => f.cat
+)
+)
+];
+
+document.getElementById('cats').innerHTML =
+
+a.map(c => `
+
+<button
+class="${c===category?'active':''}"
+onclick="category='${c}';renderCats();render()"
+>
+
+${c}
+
+</button>
+
+`).join('');
+
+}
+
+
+function render(){
+
+let q =
+document
+.getElementById('search')
+.value
+.toLowerCase();
+
+let max =
++document
+.getElementById('range')
+.value;
+
+
+let list = foods.filter(f =>
+
+(category === 'Tất cả' ||
+f.cat === category)
+
+&&
+
+f.price <= max
+
+&&
+
+f.name
+.toLowerCase()
+.includes(q)
+
+);
+
+
+let s =
+document
+.getElementById('sort')
+.value;
+
+
+if(s === 'up')
+list.sort(
+(a,b) => a.price - b.price
+);
+
+
+if(s === 'down')
+list.sort(
+(a,b) => b.price - a.price
+);
+
+
+if(s === 'rating')
+list.sort(
+(a,b) => b.rating - a.rating
+);
+
+
+document.getElementById('products').innerHTML =
+
+list.length
+
+?
+
+list.map(f => `
+
+<article
+class="card"
+onclick="openProduct(${f.id})"
+>
+
+<div
+class="photo"
+style="background-image:url('${f.img}')"
+>
+
+${
+f.tag
+
+?
+
+`<span class="tag">
+${f.tag}
+</span>`
+
+:
+
+''
+}
+
+</div>
+
+
+<div class="body">
+
+<h3>
+${f.name}
+</h3>
+
+
+<div class="meta">
+
+<span class="stars">
+★★★★★
+</span>
+
+(${f.reviews})
+
+</div>
+
+
+<div class="price">
+${money(f.price)}
+</div>
+
+
+<button
+class="add"
+onclick="event.stopPropagation();addCart(${f.id})"
+>
+
+Thêm vào giỏ
+
+</button>
+
+</div>
+
+</article>
+
+`).join('')
+
+:
+
+'<div class="empty">Không tìm thấy sản phẩm phù hợp 😢</div>';
+
+}
+
+
+function renderBest(){
+
+document.getElementById('best').innerHTML =
+
+foods
+.slice(0,2)
+.map(f => `
+
+<div class="best">
+
+<div
+class="bestimg"
+style="background-image:url('${f.img}')"
+></div>
+
+
+<div>
+
+<h4>
+${f.name}
+</h4>
+
+
+<div class="stars">
+
+★★★★★
+
+<span style="color:#777">
+(${f.reviews})
+</span>
+
+</div>
+
+
+<div
+style="font-weight:800;margin-top:5px"
+>
+
+${money(f.price)}
+
+</div>
+
+</div>
+
+</div>
+
+`).join('');
+
+}
+
+
+function openProduct(id){
+
+let f =
+foods.find(
+x => x.id === id
+);
+
+
+detailQty = 1;
+
+
+document.getElementById('detail').innerHTML = `
+
+<button
+class="close"
+onclick="closeProduct()"
+>
+×
+</button>
+
+
+<div
+class="detailphoto"
+style="background-image:url('${f.img}')"
+></div>
+
+
+<div class="detailinfo">
+
+<small>
+${f.cat}
+</small>
+
+
+<h2>
+${f.name}
+</h2>
+
+
+<div class="stars">
+
+★★★★★
+
+<span style="color:#777">
+
+${f.rating}
+(${f.reviews} đánh giá)
+
+</span>
+
+</div>
+
+
+<div class="bigprice">
+
+${money(f.price)}
+
+</div>
+
+
+<p>
+${f.desc}
+</p>
+
+
+<div class="ibox">
+
+<b>
+🥗 Thành phần
+</b>
+
+<p>
+${f.ingredients}
+</p>
+
+</div>
+
+
+<div class="ibox">
+
+<b>
+🚚 Thời gian chuẩn bị
+</b>
+
+<p>
+${f.time} • Đóng gói cẩn thận
+</p>
+
+</div>
+
+
+<div class="qty">
+
+<b>
+Số lượng:
+</b>
+
+
+<button
+onclick="changeDetail(-1)"
+>
+−
+</button>
+
+
+<strong id="dq">
+1
+</strong>
+
+
+<button
+onclick="changeDetail(1)"
+>
++
+</button>
+
+</div>
+
+
+<button
+class="buy"
+onclick="addDetail(${f.id})"
+>
+
+🛒 THÊM VÀO GIỎ
+
+</button>
+
+</div>
+
+`;
+
+
+document
+.getElementById('modal')
+.classList
+.add('show');
+
+
+document
+.getElementById('overlay')
+.classList
+.add('show');
+
+}
+
+
+function changeDetail(n){
+
+detailQty =
+Math.max(
+1,
+detailQty + n
+);
+
+
+document
+.getElementById('dq')
+.textContent =
+detailQty;
+
+}
+
+
+function addDetail(id){
+
+for(
+let i = 0;
+i < detailQty;
+i++
+){
+
+addCart(id);
+
+}
+
+
+closeProduct();
+
+toast(
+'Đã thêm sản phẩm vào giỏ 🛒'
+);
+
+}
+
+
+function addCart(id){
+
+let x =
+cartItems.find(
+i => i.id === id
+);
+
+
+x
+?
+
+x.qty++
+
+:
+
+cartItems.push({
+id,
+qty:1
+});
+
+
+updateCart();
+
+
+toast(
+'Đã thêm vào giỏ 🛒'
+);
+
+}
+
+
+function updateCart(){
+
+let total = 0;
+
+let count = 0;
+
+
+document.getElementById('cartList').innerHTML =
+
+cartItems.length
+
+?
+
+cartItems.map(i => {
+
+let f =
+foods.find(
+x => x.id === i.id
+);
+
+
+total +=
+f.price * i.qty;
+
+
+count +=
+i.qty;
+
+
+return `
+
+<div class="crow">
+
+<div
+class="cphoto"
+style="background-image:url('${f.img}')"
+></div>
+
+
+<div>
+
+<b>
+${f.name}
+</b>
+
+<br>
+
+<small>
+${money(f.price)}
+</small>
+
+
+<div class="cqty">
+
+<button
+onclick="changeCart(${f.id},-1)"
+>
+−
+</button>
+
+
+<span>
+${i.qty}
+</span>
+
+
+<button
+onclick="changeCart(${f.id},1)"
+>
++
+</button>
+
+</div>
+
+</div>
+
+
+<b>
+${money(f.price*i.qty)}
+</b>
+
+</div>
+
+`;
+
+}).join('')
+
+:
+
+'<div class="empty">Giỏ hàng đang trống 🛒</div>';
+
+
+document
+.getElementById('total')
+.textContent =
+money(total);
+
+
+document
+.getElementById('cartCount')
+.textContent =
+count;
+
+}
+
+
+function changeCart(id,n){
+
+let i =
+cartItems.find(
+x => x.id === id
+);
+
+
+if(!i)
+return;
+
+
+i.qty += n;
+
+
+if(i.qty <= 0){
+
+cartItems =
+cartItems.filter(
+x => x.id !== id
+);
+
+}
+
+
+updateCart();
+
+}
+
+
+function openCart(){
+
+document
+.getElementById('cart')
+.classList
+.add('open');
+
+
+document
+.getElementById('overlay')
+.classList
+.add('show');
+
+
+updateCart();
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById('cart')
+.classList
+.remove('open');
+
+
+if(
+!document
+.getElementById('modal')
+.classList
+.contains('show')
+){
+
+document
+.getElementById('overlay')
+.classList
+.remove('show');
+
+}
+
+}
+
+
+function closeProduct(){
+
+document
+.getElementById('modal')
+.classList
+.remove('show');
+
+
+if(
+!document
+.getElementById('cart')
+.classList
+.contains('open')
+){
+
+document
+.getElementById('overlay')
+.classList
+.remove('show');
+
+}
+
+}
+
+
+function closeAll(){
+
+closeCart();
+
+closeProduct();
+
+document
+.getElementById('overlay')
+.classList
+.remove('show');
+
+}
+
+
+function checkout(){
+
+if(!cartItems.length){
+
+toast(
+'Giỏ hàng đang trống'
+);
+
+return;
+
+}
+
+
+let t =
+cartItems.reduce(
+
+(s,i) =>
+
+s +
+
+foods.find(
+f => f.id === i.id
+).price * i.qty,
+
+0
+
+);
+
+
+alert(
+
+'🎉 Đặt hàng thành công!\n\n' +
+
+'Tổng tiền: ' +
+
+money(t) +
+
+'\n\n' +
+
+'Cảm ơn bạn đã mua hàng tại Foodie House ❤️'
+
+);
+
+
+cartItems = [];
+
+updateCart();
+
+closeCart();
+
+}
+
+
+let tt;
+
+
+function toast(t){
+
+let e =
+document.getElementById('toast');
+
+
+e.textContent = t;
+
+
+e.classList.add('show');
+
+
+clearTimeout(tt);
+
+
+tt =
+setTimeout(
+
+() =>
+e.classList.remove('show'),
+
+1800
+
+);
+
+}
+
+
+renderCats();
+
+renderBest();
+
+render();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
+```
+
+**Cách chạy:** lưu thành `foodiehouse.html` → bấm đúp mở bằng Chrome là được. Ảnh món ăn trong code đang lấy từ Unsplash nên **máy cần Internet để tải ảnh**.
